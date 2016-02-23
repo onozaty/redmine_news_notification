@@ -17,7 +17,7 @@ class NewsNotificationsListener < Redmine::Hook::ViewListener
 
       unread_news = Array.new
       unread_news_all.each do |news|
-        unread_news << [news.id, news.title, news.summary, news.author.name, news.created_on.strftime("%Y/%m/%d %H:%M:%S"), news.project.name]
+        unread_news << [news.id, news.title, news.summary, news.author.name, format_time(news.created_on), news.project.name]
       end
 
       #Rails.logger.debug unread_news
